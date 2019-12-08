@@ -1,0 +1,385 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="TimeModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="TimeModelStoreContainer">
+          <EntitySet Name="Suggestions" EntityType="TimeModel.Store.Suggestions" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="sysdiagrams" EntityType="TimeModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Timelines" EntityType="TimeModel.Store.Timelines" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TimelineTags" EntityType="TimeModel.Store.TimelineTags" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserReminderSettings" EntityType="TimeModel.Store.UserReminderSettings" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Users" EntityType="TimeModel.Store.Users" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Suggestions_Users" Association="TimeModel.Store.FK_Suggestions_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Suggestions" EntitySet="Suggestions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Timelines_Users" Association="TimeModel.Store.FK_Timelines_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Timelines" EntitySet="Timelines" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TimelineTags_Timelines" Association="TimeModel.Store.FK_TimelineTags_Timelines">
+            <End Role="Timelines" EntitySet="Timelines" />
+            <End Role="TimelineTags" EntitySet="TimelineTags" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserReminderSettings_Users" Association="TimeModel.Store.FK_UserReminderSettings_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UserReminderSettings" EntitySet="UserReminderSettings" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Suggestions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+          <Property Name="Label" Type="varchar" Nullable="false" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Timelines">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+          <Property Name="Label" Type="varchar" Nullable="false" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="TimelineTags">
+          <Key>
+            <PropertyRef Name="TimelineId" />
+            <PropertyRef Name="Tag" />
+          </Key>
+          <Property Name="TimelineId" Type="int" Nullable="false" />
+          <Property Name="Tag" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="UserReminderSettings">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="Enabled" Type="bit" Nullable="false" />
+          <Property Name="Frequency" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" />
+          <Property Name="IsAdmin" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Suggestions_Users">
+          <End Role="Users" Type="TimeModel.Store.Users" Multiplicity="1" />
+          <End Role="Suggestions" Type="TimeModel.Store.Suggestions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Suggestions">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Timelines_Users">
+          <End Role="Users" Type="TimeModel.Store.Users" Multiplicity="1" />
+          <End Role="Timelines" Type="TimeModel.Store.Timelines" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Timelines">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TimelineTags_Timelines">
+          <End Role="Timelines" Type="TimeModel.Store.Timelines" Multiplicity="1" />
+          <End Role="TimelineTags" Type="TimeModel.Store.TimelineTags" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Timelines">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TimelineTags">
+              <PropertyRef Name="TimelineId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserReminderSettings_Users">
+          <End Role="Users" Type="TimeModel.Store.Users" Multiplicity="1" />
+          <End Role="UserReminderSettings" Type="TimeModel.Store.UserReminderSettings" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserReminderSettings">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TimeModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="OstrichTimeEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Suggestions" EntityType="TimeModel.Suggestion" />
+          <EntitySet Name="sysdiagrams" EntityType="TimeModel.sysdiagram" />
+          <EntitySet Name="Timelines" EntityType="TimeModel.Timeline" />
+          <EntitySet Name="TimelineTags" EntityType="TimeModel.TimelineTag" />
+          <EntitySet Name="UserReminderSettings" EntityType="TimeModel.UserReminderSetting" />
+          <EntitySet Name="Users" EntityType="TimeModel.User" />
+          <AssociationSet Name="FK_Suggestions_Users" Association="TimeModel.FK_Suggestions_Users">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Suggestion" EntitySet="Suggestions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Timelines_Users" Association="TimeModel.FK_Timelines_Users">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Timeline" EntitySet="Timelines" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TimelineTags_Timelines" Association="TimeModel.FK_TimelineTags_Timelines">
+            <End Role="Timeline" EntitySet="Timelines" />
+            <End Role="TimelineTag" EntitySet="TimelineTags" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserReminderSettings_Users" Association="TimeModel.FK_UserReminderSettings_Users">
+            <End Role="User" EntitySet="Users" />
+            <End Role="UserReminderSetting" EntitySet="UserReminderSettings" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Suggestion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="UserId" Nullable="false" />
+          <Property Type="DateTime" Name="TimeStamp" Nullable="false" />
+          <Property Type="String" Name="Label" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="User" Relationship="TimeModel.FK_Suggestions_Users" FromRole="Suggestion" ToRole="User" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Type="String" Name="name" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="principal_id" Nullable="false" />
+          <Property Type="Int32" Name="diagram_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="version" />
+          <Property Type="Binary" Name="definition" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Timeline">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="UserId" Nullable="false" />
+          <Property Type="DateTime" Name="TimeStamp" Nullable="false" />
+          <Property Type="String" Name="Label" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="User" Relationship="TimeModel.FK_Timelines_Users" FromRole="Timeline" ToRole="User" />
+          <NavigationProperty Name="TimelineTags" Relationship="TimeModel.FK_TimelineTags_Timelines" FromRole="Timeline" ToRole="TimelineTag" />
+        </EntityType>
+        <EntityType Name="TimelineTag">
+          <Key>
+            <PropertyRef Name="TimelineId" />
+            <PropertyRef Name="Tag" />
+          </Key>
+          <Property Type="Int32" Name="TimelineId" Nullable="false" />
+          <Property Type="String" Name="Tag" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Timeline" Relationship="TimeModel.FK_TimelineTags_Timelines" FromRole="TimelineTag" ToRole="Timeline" />
+        </EntityType>
+        <EntityType Name="UserReminderSetting">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Type="Int32" Name="UserId" Nullable="false" />
+          <Property Type="Boolean" Name="Enabled" Nullable="false" />
+          <Property Type="Int32" Name="Frequency" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="TimeModel.FK_UserReminderSettings_Users" FromRole="UserReminderSetting" ToRole="User" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="UserName" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="FirstName" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="LastName" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="IsAdmin" Nullable="false" />
+          <NavigationProperty Name="Suggestions" Relationship="TimeModel.FK_Suggestions_Users" FromRole="User" ToRole="Suggestion" />
+          <NavigationProperty Name="Timelines" Relationship="TimeModel.FK_Timelines_Users" FromRole="User" ToRole="Timeline" />
+          <NavigationProperty Name="UserReminderSetting" Relationship="TimeModel.FK_UserReminderSettings_Users" FromRole="User" ToRole="UserReminderSetting" />
+        </EntityType>
+        <Association Name="FK_Suggestions_Users">
+          <End Type="TimeModel.User" Role="User" Multiplicity="1" />
+          <End Type="TimeModel.Suggestion" Role="Suggestion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Suggestion">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Timelines_Users">
+          <End Type="TimeModel.User" Role="User" Multiplicity="1" />
+          <End Type="TimeModel.Timeline" Role="Timeline" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Timeline">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TimelineTags_Timelines">
+          <End Type="TimeModel.Timeline" Role="Timeline" Multiplicity="1" />
+          <End Type="TimeModel.TimelineTag" Role="TimelineTag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Timeline">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TimelineTag">
+              <PropertyRef Name="TimelineId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserReminderSettings_Users">
+          <End Type="TimeModel.User" Role="User" Multiplicity="1" />
+          <End Type="TimeModel.UserReminderSetting" Role="UserReminderSetting" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserReminderSetting">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TimeModelStoreContainer" CdmEntityContainer="OstrichTimeEntities">
+          <EntitySetMapping Name="Suggestions">
+            <EntityTypeMapping TypeName="TimeModel.Suggestion">
+              <MappingFragment StoreEntitySet="Suggestions">
+                <ScalarProperty Name="Label" ColumnName="Label" />
+                <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="TimeModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Timelines">
+            <EntityTypeMapping TypeName="TimeModel.Timeline">
+              <MappingFragment StoreEntitySet="Timelines">
+                <ScalarProperty Name="Label" ColumnName="Label" />
+                <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TimelineTags">
+            <EntityTypeMapping TypeName="TimeModel.TimelineTag">
+              <MappingFragment StoreEntitySet="TimelineTags">
+                <ScalarProperty Name="Tag" ColumnName="Tag" />
+                <ScalarProperty Name="TimelineId" ColumnName="TimelineId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserReminderSettings">
+            <EntityTypeMapping TypeName="TimeModel.UserReminderSetting">
+              <MappingFragment StoreEntitySet="UserReminderSettings">
+                <ScalarProperty Name="Frequency" ColumnName="Frequency" />
+                <ScalarProperty Name="Enabled" ColumnName="Enabled" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="TimeModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Time">
+        <EntityTypeShape EntityType="TimeModel.Suggestion" Width="1.5" PointX="3" PointY="1.375" Height="1.9802864583333246" />
+        <EntityTypeShape EntityType="TimeModel.sysdiagram" Width="1.5" PointX="5.75" PointY="0.875" Height="1.9802864583333246" />
+        <EntityTypeShape EntityType="TimeModel.Timeline" Width="1.5" PointX="3" PointY="3.875" Height="2.1725878906250102" />
+        <EntityTypeShape EntityType="TimeModel.TimelineTag" Width="1.5" PointX="5.625" PointY="3.875" Height="1.595683593749996" />
+        <EntityTypeShape EntityType="TimeModel.UserReminderSetting" Width="1.5" PointX="3" PointY="6.5" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="TimeModel.User" Width="1.5" PointX="0.75" PointY="3.625" Height="2.5571907552083246" />
+        <AssociationConnector Association="TimeModel.FK_Suggestions_Users" >
+          <ConnectorPoint PointX="1.5" PointY="3.625" />
+          <ConnectorPoint PointX="1.5" PointY="2.3651432291666623" />
+          <ConnectorPoint PointX="3" PointY="2.3651432291666623" />
+        </AssociationConnector>
+        <AssociationConnector Association="TimeModel.FK_Timelines_Users" >
+          <ConnectorPoint PointX="2.25" PointY="4.9612939453125051" />
+          <ConnectorPoint PointX="3" PointY="4.9612939453125051" />
+        </AssociationConnector>
+        <AssociationConnector Association="TimeModel.FK_TimelineTags_Timelines" >
+          <ConnectorPoint PointX="4.5" PointY="4.672841796874998" />
+          <ConnectorPoint PointX="5.625" PointY="4.672841796874998" />
+        </AssociationConnector>
+        <AssociationConnector Association="TimeModel.FK_UserReminderSettings_Users" >
+          <ConnectorPoint PointX="1.5" PointY="6.1821907552083246" />
+          <ConnectorPoint PointX="1.5" PointY="7.3939925130208337" />
+          <ConnectorPoint PointX="3" PointY="7.3939925130208337" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

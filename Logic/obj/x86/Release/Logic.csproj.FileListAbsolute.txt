@@ -1,0 +1,16 @@
+D:\MySource\Ostrich\DEV\2011.1.30\Logic\bin\Debug\Ostrich.Logic.dll
+D:\MySource\Ostrich\DEV\2011.1.30\Logic\bin\Debug\Ostrich.Logic.pdb
+D:\MySource\Ostrich\DEV\2011.1.30\Logic\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\MySource\Ostrich\DEV\2011.1.30\Logic\obj\x86\Debug\Ostrich.Logic.Properties.Resources.resources
+D:\MySource\Ostrich\DEV\2011.1.30\Logic\obj\x86\Debug\GenerateResource.read.1.tlog
+D:\MySource\Ostrich\DEV\2011.1.30\Logic\obj\x86\Debug\GenerateResource.write.1.tlog
+D:\MySource\Ostrich\DEV\2011.1.30\Logic\obj\x86\Debug\Ostrich.Logic.dll
+D:\MySource\Ostrich\DEV\2011.1.30\Logic\obj\x86\Debug\Ostrich.Logic.pdb
+D:\MySource\Ostrich\DEV\2011.1.30\Logic\obj\x86\Release\ResolveAssemblyReference.cache
+D:\MySource\Ostrich\DEV\2011.1.30\Logic\obj\x86\Release\Ostrich.Logic.Properties.Resources.resources
+D:\MySource\Ostrich\DEV\2011.1.30\Logic\obj\x86\Release\GenerateResource.read.1.tlog
+D:\MySource\Ostrich\DEV\2011.1.30\Logic\obj\x86\Release\GenerateResource.write.1.tlog
+D:\MySource\Ostrich\DEV\2011.1.30\Logic\obj\x86\Release\Ostrich.Logic.dll
+D:\MySource\Ostrich\DEV\2011.1.30\Logic\bin\Release\Ostrich.Logic.dll
+D:\MySource\Ostrich\DEV\2011.1.30\Logic\bin\Release\Ostrich.Logic.pdb
+D:\MySource\Ostrich\DEV\2011.1.30\Logic\obj\x86\Release\Ostrich.Logic.pdb

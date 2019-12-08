@@ -1,0 +1,5 @@
+D:\MySource\Ostrich\DEV\2011.1.30\DataAccess\bin\Debug\DataAccess.dll
+D:\MySource\Ostrich\DEV\2011.1.30\DataAccess\bin\Debug\DataAccess.pdb
+D:\MySource\Ostrich\DEV\2011.1.30\DataAccess\obj\Debug\DataAccess.dll
+D:\MySource\Ostrich\DEV\2011.1.30\DataAccess\obj\Debug\DataAccess.pdb
+D:\MySource\Ostrich\DEV\2011.1.30\DataAccess\obj\Debug\Timeline.DataAccess-Obsolete.csprojResolveAssemblyReference.cache

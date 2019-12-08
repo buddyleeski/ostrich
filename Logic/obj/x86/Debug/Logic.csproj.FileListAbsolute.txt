@@ -1,0 +1,7 @@
+D:\MySource\Ostrich\DEV\2011.1.30\Logic\bin\Debug\Ostrich.Logic.dll
+D:\MySource\Ostrich\DEV\2011.1.30\Logic\bin\Debug\Ostrich.Logic.pdb
+D:\MySource\Ostrich\DEV\2011.1.30\Logic\obj\x86\Debug\Ostrich.Logic.Properties.Resources.resources
+D:\MySource\Ostrich\DEV\2011.1.30\Logic\obj\x86\Debug\Ostrich.Logic.dll
+D:\MySource\Ostrich\DEV\2011.1.30\Logic\obj\x86\Debug\Ostrich.Logic.pdb
+D:\MySource\Ostrich\DEV\2011.1.30\Logic\obj\x86\Debug\Logic.csprojResolveAssemblyReference.cache
+D:\MySource\Ostrich\DEV\2011.1.30\Logic\obj\x86\Debug\Logic.csproj.GenerateResource.Cache

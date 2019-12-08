@@ -1,0 +1,3 @@
+﻿--CREATE USER [dev] FOR LOGIN [dev] WITH DEFAULT_SCHEMA=[dbo]
+
+

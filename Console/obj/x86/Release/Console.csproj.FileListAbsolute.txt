@@ -1,0 +1,12 @@
+D:\MySource\Ostrich\DEV\2011.1.30\Console\bin\Release\Console.exe
+D:\MySource\Ostrich\DEV\2011.1.30\Console\bin\Release\Console.pdb
+D:\MySource\Ostrich\DEV\2011.1.30\Console\bin\Release\jabber-net.dll
+D:\MySource\Ostrich\DEV\2011.1.30\Console\bin\Release\netlib.Dns.dll
+D:\MySource\Ostrich\DEV\2011.1.30\Console\bin\Release\Ostrich.exe
+D:\MySource\Ostrich\DEV\2011.1.30\Console\bin\Release\Ostrich.Logic.dll
+D:\MySource\Ostrich\DEV\2011.1.30\Console\bin\Release\zlib.net.dll
+D:\MySource\Ostrich\DEV\2011.1.30\Console\bin\Release\Ostrich.Logic.pdb
+D:\MySource\Ostrich\DEV\2011.1.30\Console\bin\Release\Ostrich.pdb
+D:\MySource\Ostrich\DEV\2011.1.30\Console\obj\x86\Release\ResolveAssemblyReference.cache
+D:\MySource\Ostrich\DEV\2011.1.30\Console\obj\x86\Release\Console.exe
+D:\MySource\Ostrich\DEV\2011.1.30\Console\obj\x86\Release\Console.pdb

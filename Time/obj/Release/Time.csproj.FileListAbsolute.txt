@@ -1,0 +1,8 @@
+D:\MySource\Ostrich\DEV\2011.1.30\Time\bin\Release\Time.dll.config
+D:\MySource\Ostrich\DEV\2011.1.30\Time\bin\Release\Time.dll
+D:\MySource\Ostrich\DEV\2011.1.30\Time\bin\Release\Time.pdb
+D:\MySource\Ostrich\DEV\2011.1.30\Time\bin\Release\Ostrich.Logic.dll
+D:\MySource\Ostrich\DEV\2011.1.30\Time\bin\Release\Ostrich.Logic.pdb
+D:\MySource\Ostrich\DEV\2011.1.30\Time\obj\Release\ResolveAssemblyReference.cache
+D:\MySource\Ostrich\DEV\2011.1.30\Time\obj\Release\Time.dll
+D:\MySource\Ostrich\DEV\2011.1.30\Time\obj\Release\Time.pdb

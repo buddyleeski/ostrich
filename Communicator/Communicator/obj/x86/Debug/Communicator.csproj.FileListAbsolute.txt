@@ -1,0 +1,14 @@
+C:\4Mike\BulletTime\POC\Communicator\Communicator\bin\Debug\Communicator.exe
+C:\4Mike\BulletTime\POC\Communicator\Communicator\bin\Debug\Communicator.pdb
+C:\4Mike\BulletTime\POC\Communicator\Communicator\obj\x86\Debug\Communicator.exe
+C:\4Mike\BulletTime\POC\Communicator\Communicator\obj\x86\Debug\Communicator.pdb
+C:\4Mike\BulletTime\POC\Communicator\Communicator\obj\x86\Debug\Interop.UCCAPILib.dll
+C:\4Mike\BulletTime\POC\Communicator\Communicator\obj\x86\Debug\Communicator.csproj.ResolveComReference.cache
+C:\4Mike\BulletTime\POC\Communicator\Communicator\bin\Debug\Communicator.exe.config
+C:\4Mike\BulletTime\POC\Communicator\Communicator\obj\x86\Debug\Communicator.csprojResolveAssemblyReference.cache
+D:\MySource\Ostrich\DEV\2011.1.30\Communicator\Communicator\obj\x86\Debug\Communicator.csprojResolveAssemblyReference.cache
+D:\MySource\Ostrich\DEV\2011.1.30\Communicator\Communicator\obj\x86\Debug\Communicator.exe
+D:\MySource\Ostrich\DEV\2011.1.30\Communicator\Communicator\obj\x86\Debug\Communicator.pdb
+D:\MySource\Ostrich\DEV\2011.1.30\Communicator\Communicator\bin\Debug\Communicator.exe.config
+D:\MySource\Ostrich\DEV\2011.1.30\Communicator\Communicator\bin\Debug\Communicator.exe
+D:\MySource\Ostrich\DEV\2011.1.30\Communicator\Communicator\bin\Debug\Communicator.pdb

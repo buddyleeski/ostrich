@@ -1,0 +1,12 @@
+D:\MySource\Ostrich\DEV\2011.1.30\Time\bin\Debug\Time.dll.config
+D:\MySource\Ostrich\DEV\2011.1.30\Time\bin\Debug\Time.dll
+D:\MySource\Ostrich\DEV\2011.1.30\Time\bin\Debug\Time.pdb
+D:\MySource\Ostrich\DEV\2011.1.30\Time\bin\Debug\Ostrich.Logic.dll
+D:\MySource\Ostrich\DEV\2011.1.30\Time\bin\Debug\Ostrich.Logic.pdb
+D:\MySource\Ostrich\DEV\2011.1.30\Time\obj\Debug\Time.dll
+D:\MySource\Ostrich\DEV\2011.1.30\Time\obj\Debug\Time.pdb
+D:\MySource\Ostrich\DEV\2011.1.30\Time\bin\Debug\FluentNHibernate.dll
+D:\MySource\Ostrich\DEV\2011.1.30\Time\bin\Debug\NHibernate.dll
+D:\MySource\Ostrich\DEV\2011.1.30\Time\bin\Debug\FluentNHibernate.xml
+D:\MySource\Ostrich\DEV\2011.1.30\Time\bin\Debug\NHibernate.xml
+D:\MySource\Ostrich\DEV\2011.1.30\Time\obj\Debug\Time.csprojResolveAssemblyReference.cache

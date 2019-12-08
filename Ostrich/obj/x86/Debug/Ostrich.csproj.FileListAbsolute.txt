@@ -1,0 +1,15 @@
+D:\MySource\Ostrich\DEV\2011.1.30\Ostrich\bin\Debug\Ostrich.exe.config
+D:\MySource\Ostrich\DEV\2011.1.30\Ostrich\bin\Debug\Ostrich.exe
+D:\MySource\Ostrich\DEV\2011.1.30\Ostrich\bin\Debug\Ostrich.pdb
+D:\MySource\Ostrich\DEV\2011.1.30\Ostrich\bin\Debug\jabber-net.dll
+D:\MySource\Ostrich\DEV\2011.1.30\Ostrich\bin\Debug\Ostrich.Logic.dll
+D:\MySource\Ostrich\DEV\2011.1.30\Ostrich\bin\Debug\zlib.net.dll
+D:\MySource\Ostrich\DEV\2011.1.30\Ostrich\bin\Debug\netlib.Dns.dll
+D:\MySource\Ostrich\DEV\2011.1.30\Ostrich\bin\Debug\Ostrich.Logic.pdb
+D:\MySource\Ostrich\DEV\2011.1.30\Ostrich\obj\x86\Debug\Ostrich.Ostrich.resources
+D:\MySource\Ostrich\DEV\2011.1.30\Ostrich\obj\x86\Debug\Ostrich.exe
+D:\MySource\Ostrich\DEV\2011.1.30\Ostrich\obj\x86\Debug\Ostrich.pdb
+D:\MySource\Ostrich\DEV\2011.1.30\Ostrich\obj\x86\Debug\Ostrich.csprojResolveAssemblyReference.cache
+D:\MySource\Ostrich\DEV\2011.1.30\Ostrich\obj\x86\Debug\Ostrich.csproj.GenerateResource.Cache
+D:\MySource\Ostrich\DEV\2011.1.30\Ostrich\bin\Debug\Communicator.exe
+D:\MySource\Ostrich\DEV\2011.1.30\Ostrich\bin\Debug\Communicator.pdb

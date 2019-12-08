@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TimeModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="TimeModelStoreContainer">
+    <EntitySet Name="Suggestions" EntityType="TimeModel.Store.Suggestions" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="sysdiagrams" EntityType="TimeModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Timelines" EntityType="TimeModel.Store.Timelines" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TimelineTags" EntityType="TimeModel.Store.TimelineTags" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserReminderSettings" EntityType="TimeModel.Store.UserReminderSettings" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Users" EntityType="TimeModel.Store.Users" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_Suggestions_Users" Association="TimeModel.Store.FK_Suggestions_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Suggestions" EntitySet="Suggestions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Timelines_Users" Association="TimeModel.Store.FK_Timelines_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Timelines" EntitySet="Timelines" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TimelineTags_Timelines" Association="TimeModel.Store.FK_TimelineTags_Timelines">
+      <End Role="Timelines" EntitySet="Timelines" />
+      <End Role="TimelineTags" EntitySet="TimelineTags" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserReminderSettings_Users" Association="TimeModel.Store.FK_UserReminderSettings_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="UserReminderSettings" EntitySet="UserReminderSettings" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Suggestions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+    <Property Name="Label" Type="varchar" Nullable="false" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Timelines">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+    <Property Name="Label" Type="varchar" Nullable="false" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="TimelineTags">
+    <Key>
+      <PropertyRef Name="TimelineId" />
+      <PropertyRef Name="Tag" />
+    </Key>
+    <Property Name="TimelineId" Type="int" Nullable="false" />
+    <Property Name="Tag" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="UserReminderSettings">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="Enabled" Type="bit" Nullable="false" />
+    <Property Name="Frequency" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="FirstName" Type="varchar" MaxLength="50" />
+    <Property Name="LastName" Type="varchar" MaxLength="50" />
+    <Property Name="IsAdmin" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Suggestions_Users">
+    <End Role="Users" Type="TimeModel.Store.Users" Multiplicity="1" />
+    <End Role="Suggestions" Type="TimeModel.Store.Suggestions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Suggestions">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Timelines_Users">
+    <End Role="Users" Type="TimeModel.Store.Users" Multiplicity="1" />
+    <End Role="Timelines" Type="TimeModel.Store.Timelines" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Timelines">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TimelineTags_Timelines">
+    <End Role="Timelines" Type="TimeModel.Store.Timelines" Multiplicity="1" />
+    <End Role="TimelineTags" Type="TimeModel.Store.TimelineTags" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Timelines">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TimelineTags">
+        <PropertyRef Name="TimelineId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserReminderSettings_Users">
+    <End Role="Users" Type="TimeModel.Store.Users" Multiplicity="1" />
+    <End Role="UserReminderSettings" Type="TimeModel.Store.UserReminderSettings" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserReminderSettings">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
